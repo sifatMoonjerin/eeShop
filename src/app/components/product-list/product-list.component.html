@@ -1,0 +1,9 @@
+<button mat-button [matMenuTriggerFor]="menu">{{curCategory | titlecase}}</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item *ngFor="let category of categories" (click)='curCategory = category'>{{ category | titlecase}}</button>
+</mat-menu>
+<div fxLayout="row wrap" fxLayoutAlign="space-around" >
+  <mat-spinner *ngIf="!products.length"></mat-spinner>
+  <app-product-card *ngFor="let product of products | filter: curCategory" [item]="product"></app-product-card>
+</div>
+
