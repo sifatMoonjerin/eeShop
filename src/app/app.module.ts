@@ -13,13 +13,22 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { FilterPipe } from './pipes/filter.pipe';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { Routes, RouterModule } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: '', component: ProductListComponent },
+  { path: 'products', component: ProductListComponent },
+  { path: 'product-details/:id', component: ProductDetailsComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     ProductCardComponent,
-    FilterPipe
+    FilterPipe,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -30,8 +39,10 @@ import { FilterPipe } from './pipes/filter.pipe';
     MatCardModule,
     MatProgressSpinnerModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    RouterModule.forRoot(appRoutes)
   ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })
