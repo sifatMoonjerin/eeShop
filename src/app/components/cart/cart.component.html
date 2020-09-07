@@ -1,0 +1,10 @@
+<ul>
+  <mat-list role="list" *ngFor="let product of cart">
+    <mat-list-item role="listitem">
+      {{product.title}} - {{product.quantity}} 
+      <button (click)="removeFromCart(product.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</ul>

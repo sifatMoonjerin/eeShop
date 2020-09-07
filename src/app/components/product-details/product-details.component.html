@@ -1,1 +1,5 @@
-<p>product-details works!</p>
+<mat-spinner *ngIf="!curProduct"></mat-spinner>
+<div *ngIf="!!curProduct">
+  <h1>{{curProduct.title}}</h1>
+</div>
+
